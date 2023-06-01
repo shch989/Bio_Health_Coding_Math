@@ -133,7 +133,25 @@ def exam_3():
 def exam_4():
     print("문제4번")
     #코딩은 여기부터 시작해주세요
+    postitive_resp = [14540, 14250]
+    negative_resp = [1120, 170090]
 
+    print("\t A보균자 \t A미보균자")
+    print("양성반응 \t{}".format(postitive_resp[0],postitive_resp[1]))
+    print("음성반응 \t{}".format(negative_resp[0],negative_resp[1]))
+    print("계 \t{} \t{}".format(postitive_resp[0] + negative_resp[0],postitive_resp[1] + negative_resp[1]))
+
+    print("")
+    print("(1) 선정한 사람이 A균 미보균자일 때, 이 사람이 양성 반응을 보일 확률")
+    prob_non_a = (postitive_resp[1] + negative_resp[1]) / 200000
+    prob_non_a_positive = postitive_resp[1] / 200000
+    print("(1)번 답: {:.4f}".format(prob_non_a_positive / prob_non_a))
+
+    print("")
+    print("(2) 선정한 사람이 A균 보균자 일 때, 이 사람이 음성 반응을 보일 확률 구하여 화면에 출력하기")
+    prob_a = (postitive_resp[0] + negative_resp[0]) / 200000
+    prob_a_negative = negative_resp[0] / 200000
+    print("(2)번 답: {:.4f}".format(prob_a_negative / prob_a))
 
     #수행시간 확인 함수입니다. 함수 호출을 지우지 말아주세요
     time_check()
