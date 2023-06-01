@@ -18,6 +18,25 @@ rc('font', family=font)
 def time_check(): #수행시간 확인 함수입니다. 내용 수정하지 말아주세요
     print("중간고사 시험 수행 인증시간:", "%s년 %s월 %s일 %s시 %s분" %(datetime.datetime.now().year,datetime.datetime.now().month,datetime.datetime.now().day,datetime.datetime.now().hour,datetime.datetime.now().minute))
 
+maze = {
+    'a': ['b'],
+    'b': ['a', 'c'],
+    'c': ['b', 'd', 'g'],
+    'd': ['d'],
+    'e': ['f', 'i'],
+    'f': ['e', 'g'],
+    'g': ['f', 'h', 'k'],
+    'h': ['g', 'l'],
+    'i': ['e', 'j'],
+    'j': ['i', 'n'],
+    'k': ['g'],
+    'l': ['h'],
+    'm': ['n'],
+    'n': ['j', 'm', 'o'],
+    'o': ['n', 'p'],
+    'p': ['o']
+}
+
 #미로찾기 함수입니다. 내용 수정하지 말아주세요
 def my_maze(maze, start, end):
     qu = []
@@ -39,6 +58,8 @@ def my_maze(maze, start, end):
                 qu.append(p+x)
                 done.add(x)
 
+print("답: ", my_maze(maze, "a", "p"))
+
 
 
 def exam_1():
@@ -49,8 +70,8 @@ def exam_1():
     y1 = np.exp2(x)
     y2 = np.power(1/2, x)
 
-    plt.plot(x, y1, marker='o', label='(2^x, x)')
-    plt.plot(x, y2, marker='o', label='((1/2)^x, x)')
+    plt.plot(x, y1, label='(2^x, x)')
+    plt.plot(x, y2, label='((1/2)^x, x)')
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title('문제 1번')
@@ -159,6 +180,25 @@ def exam_4():
 def exam_5():
     print("문제5번")
     #코딩은 여기부터 시작해주세요
+    A = np.array([[1, -1, 2],
+                  [2, 1, -3],
+                  [4, 1, 1]])
+
+    B = np.array([[3, -1, -2],
+                  [-4, 2, 1],
+                  [1, 4, -3]])
+
+    print("(1) A+B를 계산하여 출력합니다.")
+    print(A + B)
+
+    AB = np.dot(A, B)
+    AB_transposed = np.transpose(AB)
+    print("(2) (A x B)T를 계산하여 출력합니다.")
+    print(AB_transposed)
+
+    AB_inverse = np.linalg.inv(AB)
+    print("(3) (A x B)의 역행렬을 계산하여 출력합니다.")
+    print(AB_inverse)
 
 
     #수행시간 확인 함수입니다. 함수 호출을 지우지 말아주세요
